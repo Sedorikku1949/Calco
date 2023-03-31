@@ -1,0 +1,13 @@
+[package]
+name = "calco"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+peg = "0.8.1"
+pest = "2.5.6"
+pest_derive = "*"
+cfg-if = "1.0.0"
+inkwell = { version = "0.1.1", features = ["llvm14-0"] }

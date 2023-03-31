@@ -1,0 +1,19 @@
+Program = _{ SOI ~ Expr ~ EOF }
+
+Expr = { UnaryExpr | BinaryExpr | Term }
+
+Term = _{Var | Number | "(" ~ Expr ~ ")" }
+
+UnaryExpr = { Operator ~ Term }
+
+BinaryExpr = { Term ~ ((Operator ~ (BinaryExpr | UnaryExpr | Term)) | ("(" ~ Expr ~ ")")) }
+
+Operator = { "+" | "-" | "*" | "x" | "/" }
+
+Var = @{ ASCII_ALPHA+ }
+
+Number = @{ Operator? ~ ASCII_DIGIT+ ~ ("." ~ ASCII_DIGIT+)? }
+
+WHITESPACE = _{ " " | "\t" }
+
+EOF = _{ EOI | ";" }
